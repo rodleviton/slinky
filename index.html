@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Slinky</title>
+    <link rel="stylesheet" media="screen" href="css/photon.css">
+    <link rel="stylesheet" media="screen" href="css/app.css">
+  </head>
+  <body>
+    <div class="window">
+      <header class="toolbar toolbar-header">
+        <h1 class="title">Slinky</h1>
+
+        <div class="toolbar-actions">
+          <button id="select-folder" class="btn btn-default">
+            <span class="icon icon-home icon-text"></span>
+            <span id="selected-folder" class="context">/Users/rodleviton/Dev/doogie<span>
+          </button>
+        </div>
+      </header>
+      <div class="window-content">
+        <ul id="pkgList" class="list-group package-list">
+        </ul>
+      </div>
+      <footer class="toolbar toolbar-footer">
+        <div class="toolbar-actions">
+          <div class="sync-indicator">
+            <span id="syncIndicator" class="icon icon-arrows-ccw is-animating"></span> <span id="syncText">Syncing...</span>
+          </div>
+          <button class="btn btn-default btn-dropdown pull-right">
+            <span class="icon icon-cog"></span>
+          </button>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js')
+  </script>
+</html>
