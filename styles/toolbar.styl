@@ -1,0 +1,57 @@
+.toolbar {
+  min-height: 30px;
+  background $black
+}
+.toolbar:before, .toolbar:after {
+  display: table;
+  content: " ";
+}
+.toolbar:after {
+  clear: both;
+}
+.toolbar-header
+  border-bottom 1px solid #292929
+
+  .toolbar-actions
+    background lighten($black, 2%)
+
+.toolbar-header .title
+  color #fff
+  font-family: 'VT323', monospace
+  font-size: 22px
+  padding 10px 10px
+  border-bottom 1px solid #000
+
+.toolbar-footer {
+  -webkit-app-region: drag;
+}
+
+.title {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 400;
+  text-align: center;
+  color: #555;
+  cursor: default;
+}
+
+.toolbar-borderless {
+  border-top: 0;
+  border-bottom: 0;
+}
+
+.toolbar-actions {
+  -webkit-app-region: drag;
+}
+.toolbar-actions:before, .toolbar-actions:after {
+  display: table;
+  content: " ";
+}
+.toolbar-actions:after {
+  clear: both;
+}
+.toolbar-actions > .btn,
+.toolbar-actions > .btn-group {
+  margin-left: 4px;
+  margin-right: 4px;
+}
