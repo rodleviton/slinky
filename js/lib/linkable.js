@@ -1,9 +1,9 @@
-const npm = require('npm')
-const path = require('path')
-const fs = require('graceful-fs')
-const asyncMap = require('slide').asyncMap
+import npm from 'npm'
+import { resolve } from 'path'
+import fs from 'graceful-fs'
+import { asyncMap } from 'slide'
 
-const getSymlinkPossibilities = (cb) => {
+export function symlinkPossibilities(cb) {
   npm.load((err) => {
     fs.readdir(npm.globalDir, (er, children) => {
 
@@ -11,7 +11,7 @@ const getSymlinkPossibilities = (cb) => {
 
       asyncMap(children, (pkg, cb) => {
 
-        var pkgPath = path.resolve(npm.globalDir, pkg)
+        const pkgPath = resolve(npm.globalDir, pkg)
 
         fs.lstat(pkgPath, (er, stat) => {
           if (er) return cb(er)
@@ -19,7 +19,7 @@ const getSymlinkPossibilities = (cb) => {
           if (stat.isSymbolicLink()) {
             fs.realpath(pkgPath, (er, realPath) => {
               if (er) return cb(er)
-              return cb(null, {name: pkg, target: pkgPath, realTargetPath: realPath})
+              return cb(null, { name: pkg, target: pkgPath, realTargetPath: realPath })
             })
           } else {
             return cb()
@@ -35,19 +35,23 @@ const getSymlinkPossibilities = (cb) => {
   })
 }
 
-const getSymlinkList = (source, cb) => {
+export function symlinkSelections(source, cb) {
   npm.load((err) => {
 
-    const npmDir = path.resolve(source, 'node_modules')
+    const npmDir = resolve(source, 'node_modules')
 
-    fs.readdir(npmDir, (er, children) => {
+    // Check if node_modules folder exists
+    fs.lstat(npmDir, function(er, stat) {
+      if (er) return cb(null, [])
+
+      fs.readdir(npmDir, (er, children) => {
 
       if (er && er.code !== 'ENOTDIR') return cb(er)
 
       asyncMap(children, (pkg, cb) => {
 
-        var pkgPath = path.resolve(npmDir, pkg)
-        var linkedPath = path.resolve(npm.globalDir, pkg)
+        const pkgPath = resolve(npmDir, pkg)
+        const linkedPath = resolve(npm.globalDir, pkg)
 
         fs.lstat(pkgPath, function(er, stat) {
           if (er) return cb(er)
@@ -55,7 +59,7 @@ const getSymlinkList = (source, cb) => {
           if (stat.isSymbolicLink()) {
             fs.realpath(pkgPath, (er, realPath) => {
               if (er) return cb(er)
-              return cb(null, {name: pkg, src: linkedPath, target: pkgPath, realTargetPath: realPath})
+              return cb(null, { name: pkg, src: linkedPath, target: pkgPath, realTargetPath: realPath })
             })
           } else {
             return cb()
@@ -68,10 +72,6 @@ const getSymlinkList = (source, cb) => {
         return cb(null, pkgs)
       })
     })
+    })
   })
-}
-
-module.exports = {
-  getSymlinkPossibilities: getSymlinkPossibilities,
-  getSymlinkList: getSymlinkList
 }
