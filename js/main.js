@@ -10,9 +10,15 @@ const app = menubar({
 ipcMain.on('open-file-dialog', function (event) {
   dialog.showOpenDialog({
     properties: ['openDirectory']
-  }, function (files) {
-    if (files) {
-      event.sender.send('selected-directory', files)
+  }, function (folder) {
+    if (folder) {
+      const n = folder[0].lastIndexOf('/')
+      const folderName = folder[0].substring(n + 1)
+      event.sender.send('selected-directory',
+      {
+        context: folder[0],
+        name: folderName
+      })
     }
   })
 })

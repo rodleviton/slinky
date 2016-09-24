@@ -1,6 +1,8 @@
-$background-colour = $grey-dark
-$background-colour-hover = #0F0F0F
-$border-color = #292929
+@require 'styles/variables.styl'
+
+$background-colour = $black
+$background-colour-hover = #060606
+$border-color = lighten($black, 5%)
 $colour-muted = #666
 
 .list-group
@@ -32,6 +34,9 @@ $colour-muted = #666
 
 .list-group-item-title
   font-size 14px
+
+.list-group-item-path
+  font-size: 11px
 
 .list-group-item.active, .list-group-item.selected
   color: #EEEEEE

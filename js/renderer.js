@@ -1,8 +1,9 @@
 import { ipcRenderer } from 'electron'
 import { sortBy } from 'lodash'
 
-const packageList = document.getElementById('packageList')
-const syncIndicator = document.getElementById('syncIndicator')
+const packageList = document.getElementById('package-list')
+const notificationPanel = document.getElementById('notification-panel')
+const syncIndicator = document.getElementById('sync-indicator')
 const syncText = document.getElementById('syncText')
 
 // TODO - Set default context via service from main process
@@ -20,7 +21,7 @@ const getItem = (pkg, index, isActive) => {
 
       <div class="media-body">
         <pre><code class="list-group-item-title">${pkg.name}</code></pre>
-        <pre><code>${pkg.realTargetPath}</code></pre>
+        <pre><code class="list-group-item-path">${pkg.realTargetPath}</code></pre>
       </div>
     </li>`
   )
@@ -38,9 +39,13 @@ const updateSyncState = (isSyncing) => {
 
 const render = (config) => {
 
+  // Show package list
+  showPackageList()
+
+  // Hide any notifications
+  hideErrorMessage()
+
   // Sort arrays
-  config.symlinkPossibilities = config.symlinkPossibilities || []
-  config.symlinkSelections = config.symlinkSelections || []
   config.symlinkPossibilities = sortBy(config.symlinkPossibilities, 'name')
 
   // Mark linked packages
@@ -88,6 +93,33 @@ const render = (config) => {
   updateSyncState(false)
 }
 
+const hidePackageList = () => {
+  packageList.classList.add('hide')
+}
+
+const showPackageList = () => {
+  packageList.classList.remove('hide')
+}
+
+const hideErrorMessage = () => {
+  notificationPanel.classList.add('hide')
+}
+
+const showErrorMessage = () => {
+  notificationPanel.classList.remove('hide')
+}
+
+const handleNotification = () => {
+  // Hide package list
+  hidePackageList()
+
+  // Show a notification
+  showErrorMessage()
+
+  // Stop sync display
+  updateSyncState(false)
+}
+
 // Select directory
 const selectDirectoryBtn = document.getElementById('select-folder')
 
@@ -95,9 +127,9 @@ selectDirectoryBtn.addEventListener('click', function () {
   ipcRenderer.send('open-file-dialog')
 })
 
-ipcRenderer.on('selected-directory', function (event, path) {
-  context = path[0]
-  document.getElementById('selected-folder').innerHTML = path[0]
+ipcRenderer.on('selected-directory', function (event, result) {
+  context = result.context
+  document.getElementById('selected-folder').innerHTML = result.name
   broadcastSync()
 })
 
@@ -111,7 +143,12 @@ ipcRenderer.on('package-unlinked', function () {
 })
 
 ipcRenderer.on('sync-complete', function (event, packages) {
-  render(packages)
+  if (packages.symlinkSelections.error) {
+    handleNotification()
+  } else {
+    render(packages)
+  }
+
 })
 
 // Kick things off

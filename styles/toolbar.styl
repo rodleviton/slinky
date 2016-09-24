@@ -1,6 +1,13 @@
+@require 'styles/variables.styl'
+
 .toolbar {
-  min-height: 30px;
-  background $black
+  min-height: 28px;
+  color: #333;
+  box-shadow: inset 0 1px 0 #f5f4f5;
+  background-color: #e8e6e8;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e8e6e8), color-stop(100%, #d1cfd1));
+  background-image: -webkit-linear-gradient(top, #e8e6e8 0%, #d1cfd1 100%);
+  background-image: linear-gradient(to bottom, #e8e6e8 0%, #d1cfd1 100%);
 }
 .toolbar:before, .toolbar:after {
   display: table;
@@ -10,17 +17,10 @@
   clear: both;
 }
 .toolbar-header
-  border-bottom 1px solid #292929
+  border-bottom 1px solid lighten($black, 5%)
 
   .toolbar-actions
-    background lighten($black, 2%)
-
-.toolbar-header .title
-  color #fff
-  font-family: 'VT323', monospace
-  font-size: 22px
-  padding 10px 10px
-  border-bottom 1px solid #000
+    background #1F1F1F
 
 .toolbar-footer {
   -webkit-app-region: drag;
@@ -28,6 +28,7 @@
 
 .title {
   margin: 0;
+  padding: 3px 0
   font-size: 12px;
   font-weight: 400;
   text-align: center;
