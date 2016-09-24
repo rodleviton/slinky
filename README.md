@@ -1,4 +1,5 @@
-# Slinky
+![Slinky](https://github.com/rodleviton/slinky/blob/master/images/Slinky.png)
+
 > A GUI for npm link management
 
 
