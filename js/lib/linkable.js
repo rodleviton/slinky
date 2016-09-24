@@ -29,7 +29,9 @@ export function symlinkPossibilities(cb) {
       }, (err, pkgs) => {
         if (err) return cb(err)
 
-        return cb(null, pkgs)
+        const result = pkgs || [];
+
+        return cb(null, result)
       })
     })
   })
@@ -42,36 +44,38 @@ export function symlinkSelections(source, cb) {
 
     // Check if node_modules folder exists
     fs.lstat(npmDir, function(er, stat) {
-      if (er) return cb(null, [])
+      if (er) return cb({error: 'not a valid npm project'})
 
       fs.readdir(npmDir, (er, children) => {
 
-      if (er && er.code !== 'ENOTDIR') return cb(er)
+        if (er && er.code !== 'ENOTDIR') return cb(er)
 
-      asyncMap(children, (pkg, cb) => {
+        asyncMap(children, (pkg, cb) => {
 
-        const pkgPath = resolve(npmDir, pkg)
-        const linkedPath = resolve(npm.globalDir, pkg)
+          const pkgPath = resolve(npmDir, pkg)
+          const linkedPath = resolve(npm.globalDir, pkg)
 
-        fs.lstat(pkgPath, function(er, stat) {
-          if (er) return cb(er)
+          fs.lstat(pkgPath, function(er, stat) {
+            if (er) return cb(er)
 
-          if (stat.isSymbolicLink()) {
-            fs.realpath(pkgPath, (er, realPath) => {
-              if (er) return cb(er)
-              return cb(null, { name: pkg, src: linkedPath, target: pkgPath, realTargetPath: realPath })
-            })
-          } else {
-            return cb()
-          }
+            if (stat.isSymbolicLink()) {
+              fs.realpath(pkgPath, (er, realPath) => {
+                if (er) return cb(er)
+                return cb(null, { name: pkg, src: linkedPath, target: pkgPath, realTargetPath: realPath })
+              })
+            } else {
+              return cb()
+            }
 
+          })
+        }, (err, pkgs) => {
+          if (err) return cb(err)
+
+          const result = pkgs || [];
+
+          return cb(null, result)
         })
-      }, (err, pkgs) => {
-        if (err) return cb(err)
-
-        return cb(null, pkgs)
       })
-    })
     })
   })
 }

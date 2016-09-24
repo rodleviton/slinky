@@ -4,7 +4,7 @@ export default function sync(context, cb) {
   const p1 = new Promise((resolve, reject) => {
     symlinkPossibilities((err, pkgs) => {
       if (err) {
-        reject(err)
+        resolve(err)
       } else {
         resolve(pkgs)
       }
@@ -14,7 +14,7 @@ export default function sync(context, cb) {
   const p2 = new Promise((resolve, reject) => {
     symlinkSelections(context, (err, pkgs) => {
       if (err) {
-        reject(err)
+        resolve(err)
       } else {
         resolve(pkgs)
       }
