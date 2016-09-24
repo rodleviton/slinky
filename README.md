@@ -2,6 +2,8 @@
 
 > A GUI for npm link management
 
+![Slinky Demo](https://github.com/rodleviton/slinky/blob/master/images/slinky-demo.gif)
+
 
 ## License
 
