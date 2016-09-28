@@ -7,4 +7,4 @@
 
 ## License
 
-This software is licensed under the MIT Licence. See [LICENSE](LICENSE).
+This software is licensed under the MIT Licence. See [LICENSE](https://github.com/rodleviton/slinky/blob/master/LICENSE.md).
