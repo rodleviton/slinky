@@ -1,7 +1,7 @@
 import menubar from 'menubar'
 import { ipcMain } from 'electron'
 import { dialog } from 'electron'
-import linkEventHandler from './lib/linkEventHandler'
+import './lib/linkEventHandler'
 
 const app = menubar({
   icon: process.cwd() + '/images/IconTemplate.png'
@@ -14,8 +14,8 @@ ipcMain.on('open-file-dialog', function (event) {
     if (folder) {
       const n = folder[0].lastIndexOf('/')
       const folderName = folder[0].substring(n + 1)
-      event.sender.send('selected-directory',
-      {
+
+      event.sender.send('selected-directory', {
         context: folder[0],
         name: folderName
       })

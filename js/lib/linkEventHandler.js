@@ -3,7 +3,7 @@ import { ipcMain } from 'electron'
 import sync from './sync'
 
 ipcMain.on('link-package', (event, arg) => {
-  cp.exec(`npm link ${arg.name}`, { cwd: arg.context }, (error, stdout, stderr) => {
+  cp.exec(`npm link ${arg.name}`, { cwd: arg.context }, (error) => {
     if (error) {
       console.warn(error)
     }
@@ -12,7 +12,7 @@ ipcMain.on('link-package', (event, arg) => {
 })
 
 ipcMain.on('unlink-package', (event, arg) => {
-  cp.exec(`npm unlink ${arg.name}`, { cwd: arg.context }, (error, stdout, stderr) => {
+  cp.exec(`npm unlink ${arg.name}`, { cwd: arg.context }, (error) => {
     if (error) {
       console.warn(error)
     }
