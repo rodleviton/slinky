@@ -4,7 +4,11 @@
   "description": "A GUI for npm link management",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "verify": "npm run verify:js --silent",
+    "verify:js": "eslint -c config/verify/.eslintrc \"js/**/*.js\" && echo verify:js success",
+    "verify:js:watch": "chokidar 'js/**/*.js' -c 'npm run verify:js' --initial --silent",
+    "verify:watch": "npm run verify:js:watch --silent"
   },
   "repository": {
     "type": "git",
@@ -25,7 +29,10 @@
     "electron-compilers": "3.1.6"
   },
   "dependencies": {
+    "chokidar-cli": "1.2.0",
     "electron-compile": "3.3.5",
+    "eslint": "1.10.3",
+    "eslint-config-defaults": "8.0.2",
     "lodash": "4.15.0",
     "menubar": "5.1.0",
     "npm": "3.10.7",

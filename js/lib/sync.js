@@ -1,7 +1,7 @@
 import { symlinkPossibilities, symlinkSelections } from './linkable'
 
 export default function sync(context, cb) {
-  const p1 = new Promise((resolve, reject) => {
+  const p1 = new Promise((resolve) => {
     symlinkPossibilities((err, pkgs) => {
       if (err) {
         resolve(err)
@@ -11,7 +11,7 @@ export default function sync(context, cb) {
     })
   })
 
-  const p2 = new Promise((resolve, reject) => {
+  const p2 = new Promise((resolve) => {
     symlinkSelections(context, (err, pkgs) => {
       if (err) {
         resolve(err)

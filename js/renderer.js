@@ -1,5 +1,5 @@
-import { ipcRenderer } from 'electron'
-import { sortBy } from 'lodash'
+import {ipcRenderer} from 'electron'
+import {sortBy} from 'lodash'
 
 const packageList = document.getElementById('package-list')
 const notificationPanel = document.getElementById('notification-panel')
@@ -15,16 +15,16 @@ const broadcastSync = () => {
 }
 
 const getItem = (pkg, index, isActive) => {
-  return (
-    `<li id="pkg-${index + 1}" class="list-group-item ${isActive ? 'active' : ''}">
+  return `
+    <li id="pkg-${index + 1}" class="list-group-item ${isActive ? 'active' : ''}">
       <span class="media-object"><i class="icon"></i></span>
 
       <div class="media-body">
         <pre><code class="list-group-item-title">${pkg.name}</code></pre>
         <pre><code class="list-group-item-path">${pkg.realTargetPath}</code></pre>
       </div>
-    </li>`
-  )
+    </li>
+  `
 }
 
 const updateSyncState = (isSyncing) => {
@@ -65,7 +65,7 @@ const render = (config) => {
   })
 
   // Update DOM
-  const listHTML = items.map((item, index) => {
+  const listHTML = items.map((item) => {
     return item.html
   })
 
@@ -77,7 +77,7 @@ const render = (config) => {
       document.getElementById(`pkg-${i + 1}`).addEventListener('click', (event) => {
         updateSyncState(true)
 
-        if(!event.currentTarget.classList.contains('processing')) {
+        if (!event.currentTarget.classList.contains('processing')) {
           if (item.active) {
             ipcRenderer.send('unlink-package', { name: item.name, context: context })
           } else {
