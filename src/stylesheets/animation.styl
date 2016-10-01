@@ -1,0 +1,11 @@
+@require 'variables.styl'
+
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
+
+.is-animating
+  transform-origin 50% 50%
+  animation spin 1s infinite linear
