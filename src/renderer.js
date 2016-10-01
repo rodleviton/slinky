@@ -38,7 +38,6 @@ const updateSyncState = (isSyncing) => {
 }
 
 const render = (config, context) => {
-  alert('render')
 
   // Show package list
   showPackageList()
