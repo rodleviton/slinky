@@ -19,7 +19,6 @@ ipcMain.on('open-file-dialog', function (event) {
     if (folder) {
       folder = folder[0]
       const folderName = getFolderName(folder)
-
       event.sender.send('selected-directory', {
         context: folder,
         name: folderName
