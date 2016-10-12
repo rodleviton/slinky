@@ -1,9 +1,14 @@
-![Slinky](https://github.com/rodleviton/slinky/blob/master/images/Slinky.png)
+![Slinky](https://github.com/rodleviton/slinky/blob/master/images/slinky-masthead.png)
 
 > A GUI for npm link management
 
-![Slinky Demo](https://github.com/rodleviton/slinky/blob/master/images/slinky-demo%40x2.gif)
+Slinky takes the hard work out of managing your NPM link dependencies.
 
+---
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how you can extend Slinky.
 
 ## License
 
