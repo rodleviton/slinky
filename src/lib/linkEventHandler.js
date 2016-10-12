@@ -22,6 +22,7 @@ ipcMain.on('unlink-package', (event, arg) => {
 
 ipcMain.on('sync', (event, arg) => {
   sync(arg.context, (error, result) => {
+
     if (error) {
       console.warn(error)
     }

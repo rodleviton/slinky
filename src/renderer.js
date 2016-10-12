@@ -7,7 +7,7 @@ const syncIndicator = document.getElementById('sync-indicator')
 const syncText = document.getElementById('syncText')
 
 // TODO - Set default context via service from main process
-let context = '/'
+let context
 
 const broadcastSync = () => {
   updateSyncState(true)
@@ -37,7 +37,7 @@ const updateSyncState = (isSyncing) => {
   }
 }
 
-const render = (config) => {
+const render = (config, context) => {
 
   // Show package list
   showPackageList()
@@ -146,10 +146,7 @@ ipcRenderer.on('sync-complete', function (event, packages) {
   if (packages.symlinkSelections.error) {
     handleNotification()
   } else {
-    render(packages)
+    render(packages, context)
   }
 
 })
-
-// Kick things off
-broadcastSync()
