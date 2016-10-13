@@ -39,13 +39,15 @@ npm unlink
 
 So many steps and imagine having to manage more than one linked package! Our nightmare does not end here either. 
 The process for checking what packages we have linked to a specific project is less than ideal. 
-In fact there is not API for this provided by npm. One unofficial technique is to __grep__ the *node_modules* folder 
+In fact there is no API provided for us by npm. One unofficial technique is to __grep__ the *node_modules* folder 
 within your project for symlinked modules.
 
 ```
 cd path/to/my-project
 ls -l node_modules | grep ^l
 ```
+
+There must be a better way!
 
 ---
 
