@@ -1,5 +1,6 @@
 ![Slinky](https://github.com/rodleviton/slinky/blob/master/images/slinky-masthead.png)
 
+# Slinky
 > A GUI for npm link management
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
