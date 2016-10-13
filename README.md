@@ -4,9 +4,6 @@
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
 
-
-![Slinky Demo](https://github.com/rodleviton/slinky/blob/master/images/slinky-demo.gif)
-
 ## Why Slinky?
 __In short__ - Slinky takes the hard work out of managing your npm link dependencies.
 
@@ -43,14 +40,27 @@ npm unlink
 So many steps and imagine having to manage more than one linked package! Our nightmare does not end here either. 
 The process for checking what packages we have linked to a specific project is less than ideal. 
 In fact there is not API for this provided by npm. One unofficial technique is to __grep__ the *node_modules* folder 
-with your project for symlinked modules.
+within your project for symlinked modules.
 
 ```
 cd path/to/my-project
 ls -l node_modules | grep ^l
 ```
 
-------------------------------------------------------------------------
+---
+
+## How Slinky?
+
+Slinky tries to improve this long winded experience by providing an easy to use GUI that reduces 
+the mental overhead required for 'linking' packages. As a developer you will still be required to run __Step 1.__ and __Step 4.__ to 'link'
+and 'unlink' your packages globally but once this has been done it as simple as choosing the folder where your project lives and Slinky
+will show you what npm packages you have available to link and what packages you have already linked.
+
+![Slinky Demo](https://github.com/rodleviton/slinky/blob/master/images/slinky-demo.gif)
+
+See how much better that is!
+
+---
 
 ### Contributing
 
