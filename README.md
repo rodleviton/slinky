@@ -20,7 +20,7 @@ cd path/to/my-npm-package
 npm link
 ```
 
-__Step 2.__ Navigate to your project that has this dependency and 'link'
+__Step 2.__ Navigate to project that has this dependency and 'link'
 ```
 cd path/to/my-project
 npm link my-npm-package
