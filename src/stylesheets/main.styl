@@ -34,7 +34,7 @@
     background darken(#1F1F1F, 25%)
 
   .context
-    color: #999
+    color: #33bbc7
     margin-left: 45px
     white-space: nowrap
     overflow: hidden
@@ -44,7 +44,7 @@
   position: relative
   display inline-block
   padding-left 28px
-  margin-top 3px
+  margin-top 7px
 
 .sync-indicator .icon
   position absolute
@@ -97,3 +97,23 @@
 
 .list-group-item.innactive .icon
   border 2px solid #ccc
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 6px;
+  width: 12px;
+  background #000
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: #eee;
+}
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(255,0,0,0.4);
+}
