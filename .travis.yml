@@ -1,28 +1,27 @@
 sudo: false
 language: node_js
-
 branches:
   only:
-    - master
-
+  - master
 os:
-  - osx
-
+- osx
 notifications:
   email:
     on_success: never
     on_failure: change
-
 node_js:
-  - '4'
-  - '6'
-
+- '6'
 before_script:
-  - npm prune
-
+- npm prune
 script:
-  - npm run test
-  - npm run e2e
-
+- npm run test
+- npm run e2e
 after_success:
-  - npm run release
+- npm run release
+deploy:
+  provider: releases
+  api_key:
+    secure: Q7bWbehMuUVRd6HL4zn3AKrkEvHrR93AmSQ81XK+EUlLMZiFvu84wDzionUhckKaxiycLBLrLYyRAAeOwimkm+9mO9VJIrnmysWTG/jMtgbbLyPhqpbxWpSkk8uTSfBK+XeyL7hI739Hftnl/RScGEYvBbPMhEZ+XILGZaB34mDhWOC8OfBCexMvvamdSsXzigx1we8HuMFqewBzGs7wswaDdr7CkHKigiEpPQXSfD5gVmjoT5uaYB4paRACkhyNAx4w9CjgDcL28zHEQDqNyWDgfBD/G/oKgd0EFY3iC/8NutTlAaiSYUPE2tX8goq4pbVG6aNZfkvlHBzTLBJ9mOc5Nqc6Fa7obAlh4ayMUaY+Q7Kdo57kVMFWTLyKvdkSmJ0vt4AkDwSen4HEmMWHw0Ns7fe4VSvgsxOW4NBqjegqd7DP2CAd0rpfTCJ/qPQJ6goMDpINDSYmeAUkMtWfN1P1FTSNl8PD82Lm5fZDTDzudTaCm+Smc8iPfEnF+ebowmdrf9zCK03q50KVwgHQEBShkbqR9Cdsiz20RiaG2NueD8bfS3IQ86FO8nmHwV49z13IYPxSVFcOofyKzGgZuY3HN5Qj6RN52O+KmR3OGLXnay0xutpSOaNLn/jrfw2TYoKyiFzrbR40VGwInpDJRfMAzibcEI6NIGgm45HVrhE=
+  file: dist/mac/slinky-1.0.0-mac.zip
+  on:
+    repo: ReactivePixels/slinky
