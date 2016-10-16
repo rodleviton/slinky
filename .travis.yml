@@ -23,7 +23,8 @@ before_deploy:
   - git config --global user.name "Travis CI"
   - export GIT_TAG=$TRAVIS_BRANCH-0.1.$TRAVIS_BUILD_NUMBER
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
-  - git push origin $GIT_TAG
+  - git push --quiet https://$GITHUB_API_KEY@github.com/ReactivePixels/slinky $GIT_TAG > /dev/null 2>&1
+
 
 deploy:
   provider: releases
