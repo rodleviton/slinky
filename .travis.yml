@@ -6,7 +6,6 @@ branches:
     - master
 
 os:
-  - linux
   - osx
 
 notifications:
@@ -25,3 +24,5 @@ script:
   - npm run test
   - npm run e2e
 
+after_success:
+  - npm run release

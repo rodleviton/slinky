@@ -4,6 +4,7 @@
 > A GUI for npm link management
 
 [![license](https://img.shields.io/github/license/mashape/apistatus.svg?maxAge=2592000)]()
+[![Build Status](https://travis-ci.org/ReactivePixels/slinky.svg?branch=master)](https://travis-ci.org/ReactivePixels/slinky)
 
 ## Why Slinky?
 __In short__ - Slinky takes the hard work out of managing your npm link dependencies.
