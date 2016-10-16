@@ -25,5 +25,4 @@ deploy:
   file: dist/mac/slinky-1.0.0.dmg
   skip_cleanup: true
   on:
-    tags: true
     repo: ReactivePixels/slinky
