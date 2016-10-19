@@ -27,9 +27,15 @@ ipcMain.on('open-file-dialog', function (event) {
   })
 })
 
-app.on('after-create-window', () => {
-  // if DEV
-  app.window.openDevTools()
+// from https://github.com/sindresorhus/electron-is-dev/blob/master/index.js
+var isDebugMode = function() {
+  return process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath);
+};
+
+
+app.on('after-create-window', (options) => {
+
+  if (isDebugMode()) { app.window.openDevTools(); }
 
   app.window.webContents.once('did-finish-load', () => {
     const context = app.app.getPath('home')
