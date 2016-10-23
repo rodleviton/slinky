@@ -2,6 +2,9 @@ build: off
 
 os: unstable
 
+platform:
+  - x64
+
 branches:
   only:
     - master
@@ -16,11 +19,12 @@ cache:
 
 install:
   - ps: Install-Product node $env:nodejs_version
-  - npm install npm
-  - .\node_modules\.bin\npm install
+#  - npm install npm
+  - npm install
+  - npm prune
 
 test_script:
   - node --version
-  - .\node_modules\.bin\npm --version
-  - .\node_modules\.bin\npm test
-  - .\node_modules\.bin\npm run e2e
+  - npm --version
+  - npm test
+  - npm run e2e
