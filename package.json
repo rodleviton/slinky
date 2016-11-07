@@ -7,8 +7,11 @@
     "type": "git"
   },
   "keywords": [
-    "Electron",
-    "NPM"
+    "npm",
+    "slinky",
+    "link",
+    "symlink",
+    "link dependencies"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
@@ -16,8 +19,7 @@
     "url": "https://github.com/ReactivePixels/slinky/issues"
   },
   "build": {
-    "appId": "com.example.electron-boilerplate",
-    "app-category-type": "your.app.category.type",
+    "appId": "com.reactivepixels.slinky",
     "win": {
       "target": [
         "nsis"

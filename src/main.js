@@ -4,7 +4,7 @@ import './lib/linkEventHandler'
 import path from 'path';
 
 const app = menubar({
-  icon: isDevMode() ? path.join('app', 'images', 'IconTemplate.png') : path.join('images', 'IconTemplate.png')
+  icon: path.join(__dirname, 'images', 'IconTemplate.png')
 })
 
 function getFolderName(folder) {
@@ -29,15 +29,10 @@ ipcMain.on('open-file-dialog', function (event) {
 
 // from https://github.com/sindresorhus/electron-is-dev/blob/master/index.js
 function isDevMode() {
-  return !/[\\/]electron-prebuilt[\\/]/.test(process.execPath);
-  //return true;
+  return process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath);
 };
+
 console.log('Dev mode: ' + isDevMode());
-console.log('CWD: ' + __dirname);
-
-console.log(path.join(process.cwd(), isDevMode() ? path.join('app', 'images', 'IconTemplate.png') : path.join('images', 'IconTemplate.png')));
-
-
 app.on('after-create-window', (options) => {
 
   if (isDevMode()) { app.window.openDevTools(); }
