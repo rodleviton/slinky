@@ -1,4 +1,4 @@
-![Slinky](https://github.com/rodleviton/slinky/blob/master/images/slinky-masthead.png)
+![Slinky](https://github.com/ReactivePixels/slinky/blob/master/images/slinky-masthead.png)
 
 # Slinky
 > A GUI for npm link management
@@ -60,7 +60,7 @@ the mental overhead required for 'linking' packages. As a developer you will sti
 and 'unlink' your packages globally but once this has been done it as simple as choosing the folder where your project lives and Slinky
 will show you what npm packages you have available to 'link' and what packages you have already 'linked'.
 
-![Slinky Demo](https://github.com/rodleviton/slinky/blob/master/images/slinky-demo.gif)
+![Slinky Demo](https://github.com/ReactivePixels/slinky/blob/master/images/slinky-demo.gif)
 
 See how much better that is!
 
@@ -72,4 +72,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for how you can extend Slinky.
 
 ### License
 
-This software is licensed under the MIT Licence. See [LICENSE](https://github.com/rodleviton/slinky/blob/master/LICENSE.md).
+This software is licensed under the MIT Licence. See [LICENSE](https://github.com/ReactivePixels/slinky/blob/master/LICENSE.md).

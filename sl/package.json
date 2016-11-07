@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rodleviton/slinky.git"
+    "url": "git+https://github.com/ReactivePixels/slinky.git"
   },
   "keywords": [
     "Electron",
@@ -21,7 +21,7 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "bugs": {
-    "url": "https://github.com/rodleviton/slinky/issues"
+    "url": "https://github.com/ReactivePixels/slinky/issues"
   },
   "devDependencies": {
     "babel-core": "^6.16.0",
