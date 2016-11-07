@@ -31,7 +31,10 @@
     "url": "https://github.com/rodleviton/slinky/issues"
   },
   "keywords": [
-    "Electron",
-    "NPM"
+    "npm",
+    "slinky",
+    "link",
+    "symlink",
+    "link dependencies"
   ]
 }

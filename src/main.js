@@ -4,7 +4,7 @@ import './lib/linkEventHandler'
 import path from 'path';
 
 const app = menubar({
-  icon: process.cwd() + '/app/images/IconTemplate.png'
+  icon: isDevMode() ? path.join('app', 'images', 'IconTemplate.png') : path.join('images', 'IconTemplate.png')
 })
 
 function getFolderName(folder) {
@@ -28,21 +28,26 @@ ipcMain.on('open-file-dialog', function (event) {
 })
 
 // from https://github.com/sindresorhus/electron-is-dev/blob/master/index.js
-var isDebugMode = function() {
-  return process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath);
+function isDevMode() {
+  return !/[\\/]electron-prebuilt[\\/]/.test(process.execPath);
+  //return true;
 };
+console.log('Dev mode: ' + isDevMode());
+console.log('CWD: ' + __dirname);
+
+console.log(path.join(process.cwd(), isDevMode() ? path.join('app', 'images', 'IconTemplate.png') : path.join('images', 'IconTemplate.png')));
 
 
 app.on('after-create-window', (options) => {
 
-  if (isDebugMode()) { app.window.openDevTools(); }
+  if (isDevMode()) { app.window.openDevTools(); }
+
 
   app.window.webContents.once('did-finish-load', () => {
     const context = app.app.getPath('home')
     app.window.webContents.send('selected-directory', {context: context, name: getFolderName(context)})
   })
 })
-
 
 //app.on('window-all-closed', () => {
 //  app.quit()
