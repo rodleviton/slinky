@@ -6,11 +6,17 @@ branches:
   only:
   - master
 os:
-- osx
+  - osx
+  - linux
+env:
+  - NODE_VERSION="6.3.0"
 notifications:
   email:
     on_success: never
     on_failure: change
+cache:
+  directories:
+    - node_modules
 node_js:
 - '6'
 before_script:
@@ -18,6 +24,7 @@ before_script:
 script:
 - npm run test
 - npm run e2e
+#script: ./scripts/travis-build.sh
 after_success:
 - npm run release
 before_deploy:
@@ -26,6 +33,11 @@ before_deploy:
   - export GIT_TAG=latest-stable
   - git tag $GIT_TAG -a -m "Generated tag from TravisCI for build $TRAVIS_BUILD_NUMBER"
   - git push --quiet https://$GITHUB_API_KEY@github.com/ReactivePixels/slinky $GIT_TAG > /dev/null 2>&1
+
+notifications:
+  email:
+    on_success: never
+    on_failure: change
 
 deploy:
   provider: releases

@@ -4,7 +4,7 @@ import './lib/linkEventHandler'
 import path from 'path';
 
 const app = menubar({
-  icon: process.cwd() + '/app/images/IconTemplate.png'
+  icon: process.cwd() + isDevMode() ? 'app/images/IconTemplate.png' : 'images/IconTemplate.png'
 })
 
 function getFolderName(folder) {
@@ -27,16 +27,20 @@ ipcMain.on('open-file-dialog', function (event) {
   })
 })
 
+function isDevMode() {
+  return process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath);
+  //return true;
+}
+
 app.on('after-create-window', () => {
-  // if DEV
-  app.window.openDevTools()
+
+  if (isDevMode()) { app.window.openDevTools(); }
 
   app.window.webContents.once('did-finish-load', () => {
     const context = app.app.getPath('home')
     app.window.webContents.send('selected-directory', {context: context, name: getFolderName(context)})
   })
 })
-
 
 //app.on('window-all-closed', () => {
 //  app.quit()
