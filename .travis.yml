@@ -44,8 +44,8 @@ deploy:
   api_key:
     secure: DJxWhinkQ5MS4/yiN32iFSfDF9z7wuRPRB3ZLhnEvO4Pe0jTn9PeoeiGYl4xpCHqiuZG2wHWvNd7WuAzmtVxTn3HqD166Smc/Do8LhswhiKpGOsi3J6jStUd7uG5Cihol5zGx5lLeal6KiOGHU1FOhxaJ+UrSStgkDemO6+pzvWX3S8cUhmWRbcBEubWXyCFjKJu26LZAamqXF8UqsQT+B+qA5Rzuh8UsuC1jMcLS9XUnwQYFTtN5p5HYBiqM0/vcdm2DaWGVF+yxEYuSf8O81I+NNbZB74QTotaE9VRBAsJNxOGP5+Y+t/Wo2X91b4CojrMf0kKuKYWjuPYJh2xEBPYYAyMp72WFYRKyzcvdqk6zyLUFozM9RjW54wIoOWchg3JsGhktimFG/RPVz/6zWbeZUuNkt68VG99vsWr6lATs3HMYRC5tDpEZBK05SRfAdGc1kax3osR4/Wsd+xh2/FAUyTu+GAyq1TP/7gYDHTzS7XUM5MCK9G1KNdaLIm7b27tM6+5BvnKe1RuyVjr3StVDRmyPecBwm75LETaPgX3A8B47dAq+C0rSyfkmTZTWeKixxFllpztT267v+XUNqIy4XgI1m8O3bxp6yqw+M69zbwKT57GF3++uv7BzfQFSx4lxUYOK1y0oQfSlQqtbX37mD120BZLgvFArUoj4t8=
   file:
-    - dist/mac/slinky-1.0.0.dmg
-    - dist/mac/slinky-1.0.0-mac.zip
+    - dist/mac/Slinky-1.0.0.dmg
+    - dist/mac/Slinky-1.0.0-mac.zip
     - dist/mac/LICENSE
   skip_cleanup: true
   on:

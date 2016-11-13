@@ -1,5 +1,5 @@
 {
-  "name": "slinky",
+  "name": "Slinky",
   "version": "1.0.0",
   "description": "A GUI for npm link management",
   "author": "Rod Leviton <rod.leviton@gmail.com>",
@@ -13,7 +13,7 @@
       "email": "rpocklin@gmail.com"
     }
   ],
-  "homepage": "https://github.com/rodleviton/slinky",
+  "homepage": "https://github.com/ReactivePixels/slinky",
   "license": {
     "type": "CC0-1.0",
     "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
@@ -28,10 +28,13 @@
     "slide": "^1.1.6"
   },
   "bugs": {
-    "url": "https://github.com/rodleviton/slinky/issues"
+    "url": "https://github.com/ReactivePixels/slinky/issues"
   },
   "keywords": [
-    "Electron",
-    "NPM"
+    "npm",
+    "slinky",
+    "link",
+    "symlink",
+    "link dependencies"
   ]
 }
