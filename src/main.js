@@ -1,5 +1,5 @@
 import menubar from 'menubar'
-import { ipcMain, dialog } from 'electron'
+import { ipcMain, dialog, Menu, MenuItem, BrowserWindow } from 'electron'
 import './lib/linkEventHandler'
 import path from 'path';
 
@@ -43,4 +43,19 @@ app.on('after-create-window', (options) => {
     const context = app.app.getPath('home')
     app.window.webContents.send('selected-directory', {context: context, name: getFolderName(context)})
   })
+})
+
+// Create context menu
+const menu = new Menu()
+menu.append(new MenuItem({ label: 'Quit Slinky', click: () => app.app.quit() }))
+
+app.on('browser-window-created', function (event, win) {
+  win.webContents.on('context-menu', function (e, params) {
+    menu.popup(win, params.x, params.y)
+  })
+})
+
+ipcMain.on('show-context-menu', function (event) {
+  const win = BrowserWindow.fromWebContents(event.sender)
+  menu.popup(win)
 })
