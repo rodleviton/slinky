@@ -66,7 +66,7 @@ See how much better that is!
 
 ---
 
-## Go Slinky!
+## Get Slinky!
 
 Download your flavour of slinky here:
 

@@ -93,6 +93,12 @@ const render = (config, context) => {
   updateSyncState(false)
 }
 
+// Tell main process to show the menu when demo button is clicked
+const contextMenuBtn = document.getElementById('context-menu')
+contextMenuBtn.addEventListener('click', function () {
+  ipcRenderer.send('show-context-menu')
+})
+
 const hidePackageList = () => {
   packageList.classList.add('hide')
 }
