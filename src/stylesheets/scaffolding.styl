@@ -26,15 +26,19 @@ hr
 
 .window
   position: absolute
-  top: 0
-  right: 0
-  bottom: 0
-  left: 0
+  overflow: hidden
+  top: 14px
+  right: 24px
+  bottom: 24px
+  left: 24px
   display: flex
   flex-direction: column
-  background-color: $background-colour
+  background-color: transparent
+  border-radius: 5px
+  box-shadow: 0 5px 24px rgba(0, 0, 0, 0.4)
 
 .window-content
+  background $background-colour
   position: relative
   overflow-y: auto
   display: flex

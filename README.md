@@ -66,6 +66,14 @@ See how much better that is!
 
 ---
 
+## Go Slinky!
+
+Download your flavour of slinky here:
+
+https://reactivepixels.github.io/get-slinky/
+
+---
+
 ### Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how you can extend Slinky.

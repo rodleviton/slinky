@@ -4,6 +4,7 @@ import './lib/linkEventHandler'
 import path from 'path';
 
 const app = menubar({
+  transparent: true,
   icon: path.join(__dirname, 'images', 'IconTemplate.png')
 })
 
@@ -43,7 +44,3 @@ app.on('after-create-window', (options) => {
     app.window.webContents.send('selected-directory', {context: context, name: getFolderName(context)})
   })
 })
-
-//app.on('window-all-closed', () => {
-//  app.quit()
-//});
