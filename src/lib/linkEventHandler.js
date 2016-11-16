@@ -1,4 +1,6 @@
 import cp from 'child_process'
+import log from 'electron-log'
+
 import { ipcMain } from 'electron'
 import sync from './sync'
 import path from 'path';
@@ -16,7 +18,7 @@ if (enableYarnMode) {
     if (!error && !fs.accessSync(path.join(process.cwd(), 'yarn.lock'))) {
     npmExec = 'yarn info';
 
-    console.info('\nFound yarn.lock, setting to YARN mode.\n');
+    log.info('\nFound yarn.lock, setting to YARN mode.\n');
   }
 })
 }
@@ -24,7 +26,7 @@ if (enableYarnMode) {
 ipcMain.on('link-package', (event, arg) => {
   cp.exec(`${npmExec} link ${arg.name}`, { cwd: arg.context }, (error) => {
     if (error) {
-      console.warn(error)
+      log.warn(error)
     }
     event.sender.send('package-linked')
   })
@@ -33,7 +35,7 @@ ipcMain.on('link-package', (event, arg) => {
 ipcMain.on('unlink-package', (event, arg) => {
   cp.exec(`${npmExec} unlink ${arg.name}`, { cwd: arg.context }, (error) => {
     if (error) {
-      console.warn(error)
+      log.warn(error)
     }
     event.sender.send('package-unlinked')
   })
@@ -43,7 +45,7 @@ ipcMain.on('sync', (event, arg) => {
   sync(arg.context, (error, result) => {
 
     if (error) {
-      console.warn(error)
+      log.warn(error)
     }
 
     event.sender.send('sync-complete', result)
