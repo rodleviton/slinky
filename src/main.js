@@ -38,7 +38,6 @@ app.on('after-create-window', (options) => {
 
   if (isDevMode()) { app.window.openDevTools(); }
 
-
   app.window.webContents.once('did-finish-load', () => {
     const context = app.app.getPath('home')
     app.window.webContents.send('selected-directory', {context: context, name: getFolderName(context)})

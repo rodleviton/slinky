@@ -1,3 +1,4 @@
+import log from 'electron-log'
 import { symlinkPossibilities, symlinkSelections } from './linkable'
 
 export default function sync(context, cb) {
@@ -24,6 +25,6 @@ export default function sync(context, cb) {
   Promise.all([p1, p2]).then(values => {
     cb(null, { symlinkPossibilities: values[0], symlinkSelections: values[1] })
   }, reason => {
-    console.warn('could not complete sync:', reason)
+    log.warn('could not complete sync:', reason)
   })
 }

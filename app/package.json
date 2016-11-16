@@ -24,8 +24,8 @@
     "graceful-fs": "^4.1.9",
     "lodash": "^4.16.2",
     "menubar": "^5.1.0",
-    "npm": "3.10.7",
-    "slide": "^1.1.6"
+    "slide": "^1.1.6",
+    "electron-log": "^1.2.2"
   },
   "bugs": {
     "url": "https://github.com/ReactivePixels/slinky/issues"

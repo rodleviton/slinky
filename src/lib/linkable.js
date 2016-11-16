@@ -1,11 +1,38 @@
-import npm from 'npm'
+import log from 'electron-log'
 import { resolve } from 'path'
 import fs from 'graceful-fs'
 import { asyncMap } from 'slide'
+import cp from 'child_process'
+
+let globalDir;
+
+function getNpmGlobalRootDirectory(cb) {
+
+  if (globalDir) {
+    return cb();
+  }
+
+  cp.exec('npm root -g', {},  (error, stdout, stderr) => {
+    if (error) {
+      log.error(error)
+      return;
+    }
+
+    if (stderr) {
+      log.error('Error:', stderr)
+    }
+
+    globalDir = stdout.trim();
+    return cb();
+  })
+
+}
+
 
 export function symlinkPossibilities(cb) {
-  npm.load(() => {
-    fs.readdir(npm.globalDir, (er, children) => {
+  getNpmGlobalRootDirectory(() => {
+
+    fs.readdir(globalDir, (er, children) => {
 
       if (er && er.code !== 'ENOTDIR') {
         return cb(er)
@@ -13,7 +40,7 @@ export function symlinkPossibilities(cb) {
 
       asyncMap(children, (pkg, cb) => {
 
-        const pkgPath = resolve(npm.globalDir, pkg)
+        const pkgPath = resolve(globalDir, pkg)
 
         fs.lstat(pkgPath, (er, stat) => {
           if (er) {
@@ -46,9 +73,10 @@ export function symlinkPossibilities(cb) {
 }
 
 export function symlinkSelections(source, cb) {
-  npm.load(() => {
 
-    const npmDir = resolve(source, 'node_modules')
+  getNpmGlobalRootDirectory(() => {
+
+  const npmDir = resolve(source, 'node_modules')
 
     // Check if node_modules folder exists
     fs.lstat(npmDir, function(er) {
@@ -65,7 +93,7 @@ export function symlinkSelections(source, cb) {
         asyncMap(children, (pkg, cb) => {
 
           const pkgPath = resolve(npmDir, pkg)
-          const linkedPath = resolve(npm.globalDir, pkg)
+          const linkedPath = resolve(globalDir, pkg)
 
           fs.lstat(pkgPath, function(er, stat) {
             if (er) {
