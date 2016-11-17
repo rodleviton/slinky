@@ -1,6 +1,7 @@
 import {ipcRenderer} from 'electron'
 import {sortBy} from 'lodash'
 
+const bodyEl = document.body
 const packageList = document.getElementById('package-list')
 const notificationPanel = document.getElementById('notification-panel')
 const syncIndicator = document.getElementById('sync-indicator')
@@ -8,6 +9,9 @@ const syncText = document.getElementById('syncText')
 
 // TODO - Set default context via service from main process
 let context
+
+// Add OS class to body
+bodyEl.classList.add(process.platform)
 
 const broadcastSync = () => {
   updateSyncState(true)
@@ -38,7 +42,6 @@ const updateSyncState = (isSyncing) => {
 }
 
 const render = (config, context) => {
-
   // Show package list
   showPackageList()
 
