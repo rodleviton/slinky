@@ -1,5 +1,5 @@
-import {ipcRenderer} from 'electron'
-import {sortBy} from 'lodash'
+import { ipcRenderer } from 'electron'
+import { sortBy } from 'lodash'
 
 const bodyEl = document.body
 const packageList = document.getElementById('package-list')
@@ -157,5 +157,4 @@ ipcRenderer.on('sync-complete', function (event, packages) {
   } else {
     render(packages, context)
   }
-
 })
