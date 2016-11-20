@@ -1,4 +1,4 @@
-![Slinky](https://github.com/ReactivePixels/slinky/blob/master/images/slinky-masthead.png)
+![Slinky](https://github.com/ReactivePixels/slinky/blob/master/images/slinky-masthead-02.png)
 
 # Slinky
 > A GUI for npm link management
