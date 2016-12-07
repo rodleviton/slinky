@@ -1,7 +1,7 @@
 import menubar from 'menubar'
 import { ipcMain, dialog, Menu, MenuItem, BrowserWindow } from 'electron'
 import './lib/linkEventHandler'
-import path from 'path';
+import path from 'path'
 
 const app = menubar({
   transparent: true,

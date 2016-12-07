@@ -3,6 +3,20 @@ import { resolve } from 'path'
 import fs from 'graceful-fs'
 import { asyncMap } from 'slide'
 import cp from 'child_process'
+import path from 'path'
+
+import 'shelljs/global'
+
+const whichNpm = which('npm')
+
+if (!whichNpm) {
+  echo('Sorry, this script requires npm in the path');
+  exit(1);
+}
+
+const npmPath = whichNpm.stdout
+
+log.info('Using NPM path:', npmPath);
 
 let globalDir;
 
@@ -12,7 +26,7 @@ function getNpmGlobalRootDirectory(cb) {
     return cb();
   }
 
-  cp.exec('npm root -g', {},  (error, stdout, stderr) => {
+  cp.exec(npmPath + ' root -g',  (error, stdout, stderr) => {
     if (error) {
       log.error(error)
       return;
