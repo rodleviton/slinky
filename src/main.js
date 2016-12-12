@@ -2,6 +2,7 @@ import menubar from 'menubar'
 import { ipcMain, dialog, Menu, MenuItem, BrowserWindow } from 'electron'
 import './lib/linkEventHandler'
 import path from 'path'
+import log from 'electron-log'
 
 const app = menubar({
   transparent: true,
@@ -33,7 +34,7 @@ function isDevMode() {
   return process.defaultApp || /[\\/]electron-prebuilt[\\/]/.test(process.execPath) || /[\\/]electron[\\/]/.test(process.execPath);
 };
 
-console.log('Dev mode: ' + isDevMode());
+log.info('Dev mode: ' + isDevMode());
 app.on('after-create-window', (options) => {
 
   if (isDevMode()) { app.window.openDevTools(); }

@@ -7,6 +7,7 @@ import path from 'path'
 
 import 'shelljs/global'
 
+log.info('Slinky Starting ...')
 const whichNpm = which('npm')
 
 if (!whichNpm) {
@@ -18,6 +19,8 @@ const npmPath = whichNpm.stdout
 
 log.info('Using NPM path:', npmPath);
 
+log.info('Slinky Started.')
+
 let globalDir;
 
 function getNpmGlobalRootDirectory(cb) {
@@ -25,6 +28,8 @@ function getNpmGlobalRootDirectory(cb) {
   if (globalDir) {
     return cb();
   }
+
+  log.info('Getting global NPM directory ...')
 
   cp.exec(npmPath + ' root -g',  (error, stdout, stderr) => {
     if (error) {
@@ -35,6 +40,8 @@ function getNpmGlobalRootDirectory(cb) {
     if (stderr) {
       log.error('Error:', stderr)
     }
+
+    log.info('... got global NPM directory.')
 
     globalDir = stdout.trim();
     return cb();

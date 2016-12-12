@@ -3,7 +3,7 @@ import log from 'electron-log'
 
 import { ipcMain } from 'electron'
 import sync from './sync'
-import path from 'path';
+import path from 'path'
 
 var fs = require('graceful-fs')
 
@@ -24,24 +24,31 @@ if (enableYarnMode) {
 }
 
 ipcMain.on('link-package', (event, arg) => {
+
+  log.info('link-package ...')
   cp.exec(`${npmExec} link ${arg.name}`, { cwd: arg.context }, (error) => {
     if (error) {
       log.warn(error)
     }
     event.sender.send('package-linked')
+    log.info('... link-package')
   })
 })
 
 ipcMain.on('unlink-package', (event, arg) => {
+  log.info('unlink-package ...')
   cp.exec(`${npmExec} unlink ${arg.name}`, { cwd: arg.context }, (error) => {
     if (error) {
       log.warn(error)
     }
     event.sender.send('package-unlinked')
+    log.info('unlink-package ...')
   })
 })
 
 ipcMain.on('sync', (event, arg) => {
+
+  log.info('sync ...')
   sync(arg.context, (error, result) => {
 
     if (error) {
@@ -49,5 +56,6 @@ ipcMain.on('sync', (event, arg) => {
     }
 
     event.sender.send('sync-complete', result)
+    log.info('...sync')
   })
 })
