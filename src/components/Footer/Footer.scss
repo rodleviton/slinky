@@ -1,0 +1,70 @@
+.footer {
+  display: flex;
+  position: absolute;
+  z-index: 2;
+  bottom: 12px;
+  width: 100%;
+  color: #626262;
+  font-size: 1.2rem;
+  min-height: 36px;
+  background-color: #DEDCDE;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DEDCDE), color-stop(100%, #D2D0D2));
+  background-image: -webkit-linear-gradient(top, #DEDCDE 0%, #D2D0D2 100%);
+  -webkit-user-select: none;
+}
+
+.status {
+  line-height: 36px;
+  flex-grow: 1;
+  padding: 0 15px;
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.packageManager {
+  line-height: 36px;
+  flex-grow: 1;
+  padding: 0 15px;
+
+  p {
+    text-align: right;
+  }
+
+  i {
+    float: right;
+    margin-left: 10px;
+  }
+}
+
+.isSyncing {
+  i {
+    position: absolute;
+    transform-origin: 50% 50%;
+    animation: spin 1s infinite linear;
+  }
+}
+
+.iconWrapper {
+  width: 30px;
+  height: 36px;
+  float: left;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.yarnIcon {
+  width: 15px;
+  height: 17px;
+  background: url('../../images/yarn.svg');
+  margin-top: 9px;
+}

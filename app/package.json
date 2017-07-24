@@ -1,8 +1,12 @@
 {
-  "name": "Slinky",
-  "version": "1.0.0",
-  "description": "A GUI for npm link management",
-  "author": "Rod Leviton <rod.leviton@gmail.com>",
+  "name": "slinky",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A GUI for npm and yarn symlink management.",
+  "author": {
+    "name": "Rod Leviton",
+    "email": "rod@rodleviton.com"
+  },
   "contributors": [
     {
       "name": "Rod Leviton",
@@ -13,28 +17,11 @@
       "email": "rpocklin@gmail.com"
     }
   ],
-  "homepage": "https://github.com/ReactivePixels/slinky",
-  "license": {
-    "type": "CC0-1.0",
-    "url": "https://creativecommons.org/publicdomain/zero/1.0/legalcode"
-  },
-  "main": "main.js",
+  "main": "./index.js",
   "dependencies": {
-    "fs-jetpack": "^0.9.0",
-    "graceful-fs": "^4.1.9",
-    "lodash": "^4.16.2",
-    "menubar": "^5.1.0",
-    "slide": "^1.1.6",
-    "electron-log": "^1.2.2"
+    "bluebird": "^3.5.0",
+    "fix-path": "^2.1.0",
+    "user-home": "^2.0.0"
   },
-  "bugs": {
-    "url": "https://github.com/ReactivePixels/slinky/issues"
-  },
-  "keywords": [
-    "npm",
-    "slinky",
-    "link",
-    "symlink",
-    "link dependencies"
-  ]
+  "devDependencies": {}
 }

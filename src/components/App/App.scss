@@ -1,0 +1,60 @@
+@import '../../styles/variables';
+
+:global {
+  $ionicons-font-path: '../../../node_modules/ionicons/fonts';
+  @import '~ionicons/scss/ionicons';
+}
+
+/* Typography */
+@font-face {
+  font-family: 'Open Sans';
+  src: url('../../fonts/Open_Sans/OpenSans-Regular.ttf');
+}
+
+/* Reset */
+html, body, h1, h2, h3, h4, h5, h6, p, ol, ul, li, dl,
+dt, dd, blockquote, address{
+  margin: 0;
+  padding: 0;
+}
+
+/* Set box-sizing globally to handle padding and border widths */
+*,
+*:after,
+*:before {
+	box-sizing: inherit;
+}
+
+body, html {
+  height: 100%;
+  width: 100%;
+}
+
+/* The base font-size is set at 62.5% for convenience
+  of sizing rems in a way that is similar to using px: 1.6rem = 16px */
+html {
+	font-size: 62.5%;
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: $font-colour;
+  min-width: 320px;
+  font-size: 1.4em; /* Use `ems` because there is a Chrome bug misinterpreting rems on body element */
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.6;
+  background-color: transparent;
+}
+
+button {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.app {
+  margin-top: 12px; // tooltip
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
