@@ -1,0 +1,65 @@
+.package {
+  box-sizing: border-box;
+  border-bottom: 1px solid #2F2F2F;
+  position: relative;
+  width: 100%;
+  -webkit-user-select: none;
+
+  button {
+    width: 100%;
+    color: #FFFFFF;
+    text-align: left;
+    padding: 10px 15px;
+    border: 0;
+    outline: 0;
+    background: #222222;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #2C2C2C;
+    }
+  }
+}
+
+.package-name {
+  font-size: 1.2rem;
+}
+
+.package-path {
+  color: #bbb;
+  font-size: 1rem;
+}
+
+.toggle {
+  position: relative;
+  border: 1px solid #00E0E9;
+  width: 50px;
+  height: 24px;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  margin-top: -12px;
+  border-radius: 12px;
+  transition: border 0.2s;
+
+  .toggleBtn {
+    position: absolute;
+    left: 0;
+    top: -1px;
+    transform: translate(0, 0);
+    background: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 12px;
+    box-shadow: 2px 2px 4px 0 rgba(0,0,0,0.50);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &.active {
+    border: 1px solid #B7F900;
+
+    .toggleBtn {
+      transform: translate(100%, 0);
+    }
+  }
+}

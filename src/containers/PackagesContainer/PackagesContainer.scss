@@ -1,0 +1,87 @@
+@import '../../styles/variables';
+
+.select-context {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: 0;
+  outline: 0;
+  border-bottom: 1px solid #2F2F2F;
+  width: 100%;
+  height: 70px;
+  padding: 0;
+  position: relative;
+  transition: background 0.2s;
+  -webkit-user-select: none;
+
+  &:hover {
+    background: #000;
+
+    .folder-icon {
+      color: #B7F900;
+    }
+  }
+}
+
+.folder-icon {
+  font-size: 28px;
+  background: none;
+  width: 60px;
+  height: 70px;
+  line-height: 65px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transition: color 0.2s;
+}
+
+.content {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.folder-name {
+  display: block;
+  font-size: 1.6rem;
+}
+
+.path {
+  display: block;
+  font-size: 1.1rem;
+  color: #E4E4E4;
+}
+
+.main {
+  background: $background-colour;
+  position: absolute;
+  top: 27px;
+  left: 0;
+  bottom: 36px;
+  right: 0;
+  z-index: 1;
+}
+
+.packageList {
+  position: absolute;
+  overflow: scroll;
+  top: 70px;
+  left: 0;
+  bottom: -3px;
+  right: 0;
+  z-index: 1;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  border-radius: 6px;
+  width: 12px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background: #767676;
+}

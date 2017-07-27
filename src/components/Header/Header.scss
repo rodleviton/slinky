@@ -1,0 +1,54 @@
+.header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+  color: #626262;
+  -webkit-app-region: no-drag;
+  -webkit-user-select: none;
+}
+
+.headerContent {
+  min-height: 27px;
+  overflow: hidden;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  background-color: #DEDCDE;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DEDCDE), color-stop(100%, #D2D0D2));
+  background-image: -webkit-linear-gradient(top, #DEDCDE 0%, #D2D0D2 100%);
+}
+
+.arrow {
+  z-index: -1;
+  width: 24px;
+  height: 24px;
+  border-top-left-radius: 4px;
+  border: 1px solid #D0D2C4;
+  background: #DEDCDE;
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  margin-left: -12px;
+  -webkit-transform: rotate(45deg);
+  clip: rect(0px,18px,18px,0px);
+}
+
+.settings {
+  border: none;
+  background: none;
+  outline: 0;
+  width: 27px;
+  height: 27px;
+  padding: 0;
+  float: right;
+  transition: color .2s;
+
+  i {
+    color: #626262;
+    font-size: 1.6rem;
+  }
+
+  &:hover i {
+    color: #444;
+  }
+}
