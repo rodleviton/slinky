@@ -11,8 +11,8 @@ os:
 before_script:
   - npm prune
 after_success:
-  - npm run pack:mac
   - npm run semantic-release
+  - npm run pack:mac
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/
