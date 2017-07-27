@@ -20,15 +20,13 @@
   "main": "app/index.js",
   "homepage": "./",
   "dependencies": {
-    "bluebird": "^3.5.0",
     "classnames": "^2.2.5",
     "ionicons": "^2.0.0",
     "prop-types": "^15.5.10",
     "react-redux": "^5.0.5",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-thunk": "^2.2.0",
-    "user-home": "^2.0.0"
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "7.1.1",
