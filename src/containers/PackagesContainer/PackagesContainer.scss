@@ -58,6 +58,7 @@
   bottom: 36px;
   right: 0;
   z-index: 1;
+  -webkit-user-select: none;
 }
 
 .packageList {
@@ -68,6 +69,14 @@
   bottom: -3px;
   right: 0;
   z-index: 1;
+}
+
+.noLinkedPackages {
+  padding: 120px 0;
+
+  p {
+    text-align: center;
+  }
 }
 
 ::-webkit-scrollbar {

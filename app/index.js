@@ -54,7 +54,7 @@ app.on('ready', () => {
     }));
   }
 
-  mainWindow.setAlwaysOnTop(true, 'dock');
+  // mainWindow.setAlwaysOnTop(true, 'dock');
 
   tray = new Tray(path.join(__dirname, 'assets/IconTemplate.png'));
 
@@ -63,7 +63,7 @@ app.on('ready', () => {
     const { height, width } = mainWindow.getBounds();
 
     if (mainWindow.isVisible()) {
-      mainWindow.hide();
+      // mainWindow.hide();
     } else {
       mainWindow.setBounds({
         x: x - (width / 2) + 10,
@@ -77,7 +77,7 @@ app.on('ready', () => {
   });
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  mainWindow.webContents.openDevTools();
 
   tray.setToolTip('Slinky');
 
@@ -90,7 +90,7 @@ app.on('ready', () => {
   });
 
   mainWindow.on('blur', () => {
-    mainWindow.hide();
+    // mainWindow.hide();
   });
 
   // Emitted when the window is closed.

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
-// import { v4 } from 'node-uuid';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as actions from '../../actions/package-actions';
@@ -17,6 +16,7 @@ class PackagesContainer extends Component {
     // Initialise working directory and Synchronize packages
     initialiseContext();
   }
+
 
   isLinked(packageName) {
     const { linkedPackages } = this.props;
@@ -63,6 +63,27 @@ class PackagesContainer extends Component {
               <ul className={styles.packageList}>
                 { availablePackages.map((npmModule) => this.renderPackage(npmModule, packageManager.name)) }
               </ul>
+            </main>
+            <Footer isSyncing={uiState.isSyncing} packageManager={packageManager.name} />
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <Header showContextMenu={showContextMenu}/>
+            <main className={styles.main}>
+              <button onClick={selectContext} className={styles['select-context']}>
+                <div className={styles['folder-icon']}>
+                  <i className="icon ion-ios-folder-outline"></i>
+                </div>
+                <div className={styles.content}>
+                  <span className={styles['folder-name']}>{context.folderName}</span>
+                  <span className={styles.path}>{context.path}</span>
+                </div>
+              </button>
+              <div className={styles.noLinkedPackages}>
+                <p>No linked modules available.</p>
+              </div>
             </main>
             <Footer isSyncing={uiState.isSyncing} packageManager={packageManager.name} />
           </div>
