@@ -29,7 +29,7 @@
   top: -6px;
   left: 50%;
   margin-left: -12px;
-  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
   clip: rect(0px,18px,18px,0px);
 }
 
@@ -41,14 +41,17 @@
   height: 27px;
   padding: 0;
   float: right;
-  transition: color .2s;
+}
 
-  i {
-    color: #626262;
-    font-size: 1.6rem;
-  }
+.ionAndroidSettings {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-color: #626262;
+  -webkit-mask-image: url('../../images/android-settings.svg');
+  transition: background-color .2s;
 
-  &:hover i {
-    color: #444;
+  &:hover {
+    background-color: #444;
   }
 }

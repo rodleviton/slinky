@@ -17,7 +17,7 @@ app.on('ready', () => {
   // https://github.com/electron/electron/issues/7688
   fixPath();
 
-  app.dock.hide(); // remove dock icon
+  // app.dock.hide(); // remove dock icon
 
   // Add some awesome debugging tools if in dev mode
   if (process.env.NODE_ENV === 'development') {
@@ -76,17 +76,22 @@ app.on('ready', () => {
     }
   });
 
-  // Open the DevTools.
-  // mainWindow.webContents.openDevTools();
+  if (process.env.NODE_ENV === 'development') {
+    // Open the DevTools.
+    mainWindow.webContents.openDevTools();
+  }
 
   tray.setToolTip('Slinky');
 
   mainWindow.on('show', () => {
-    tray.setHighlightMode('always')
+    tray.setHighlightMode('always');
+
+    // Always re-sync packages
+    mainWindow.webContents.send('packages:sync');
   });
 
   mainWindow.on('hide', () => {
-    tray.setHighlightMode('never')
+    tray.setHighlightMode('never');
   });
 
   mainWindow.on('blur', () => {

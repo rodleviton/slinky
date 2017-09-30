@@ -8,7 +8,7 @@ const Header = ({ showContextMenu }) => {
 
       <div className={styles.headerContent}>
         <button className={styles.settings} onClick={showContextMenu}>
-          <i className="icon ion-android-settings"></i>
+          <i className={styles.ionAndroidSettings}></i>
         </button>
       </div>
     </header>

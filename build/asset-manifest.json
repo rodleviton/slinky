@@ -1,8 +1,12 @@
 {
-  "main.css": "static/css/main.364730ec.css",
-  "main.css.map": "static/css/main.364730ec.css.map",
-  "main.js": "static/js/main.ebfb4f82.js",
-  "main.js.map": "static/js/main.ebfb4f82.js.map",
+  "main.css": "static/css/main.6a3c32fd.css",
+  "main.css.map": "static/css/main.6a3c32fd.css.map",
+  "main.js": "static/js/main.15688e7e.js",
+  "main.js.map": "static/js/main.15688e7e.js.map",
   "static/media/OpenSans-Regular.ttf": "static/media/OpenSans-Regular.d7d5d458.ttf",
+  "static/media/android-settings.svg": "static/media/android-settings.3ca2a2e8.svg",
+  "static/media/android-sync.svg": "static/media/android-sync.0fce5976.svg",
+  "static/media/checkmark.svg": "static/media/checkmark.7fbe5b19.svg",
+  "static/media/ios-folder-outline.svg": "static/media/ios-folder-outline.a15a0dec.svg",
   "static/media/yarn.svg": "static/media/yarn.c31a7431.svg"
 }

@@ -23,11 +23,15 @@
 
 .package-name {
   font-size: 1.2rem;
+  padding-right: 60px;
+  word-break: break-all;
 }
 
 .package-path {
   color: #bbb;
   font-size: 1rem;
+  padding-right: 60px;
+  word-break: break-all;
 }
 
 .toggle {

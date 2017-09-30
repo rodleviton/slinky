@@ -53,7 +53,7 @@ class PackagesContainer extends Component {
             <main className={styles.main}>
               <button onClick={selectContext} className={styles['select-context']}>
                 <div className={styles['folder-icon']}>
-                  <i className="icon ion-ios-folder-outline"></i>
+                <i className={styles.iosFolderOutline}></i>
                 </div>
                 <div className={styles.content}>
                   <span className={styles['folder-name']}>{context.folderName}</span>
@@ -74,7 +74,7 @@ class PackagesContainer extends Component {
             <main className={styles.main}>
               <button onClick={selectContext} className={styles['select-context']}>
                 <div className={styles['folder-icon']}>
-                  <i className="icon ion-ios-folder-outline"></i>
+                  <i className={styles.iosFolderOutline}></i>
                 </div>
                 <div className={styles.content}>
                   <span className={styles['folder-name']}>{context.folderName}</span>

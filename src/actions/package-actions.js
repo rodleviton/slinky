@@ -107,7 +107,9 @@ export const initialiseContext = () => (dispatch, getState) => {
     });
   });
 
-  ipcRenderer.on('context-menu:sync', (event) => {
+  // This event is used to capture events coming from the electron main app
+  // Clicking the context menu sync button or `showing` the app will trigger this event
+  ipcRenderer.on('packages:sync', (event) => {
     dispatch({ type: SYNC_PACKAGES_START });
     ipcRenderer.send('packages:sync', { context: getState().context.path });
 

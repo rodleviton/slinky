@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .footer {
   display: flex;
   position: absolute;
@@ -62,9 +64,33 @@
   }
 }
 
-.yarnIcon {
+.yarnIconNotAvailable {
   width: 15px;
   height: 17px;
+  margin-top: 8px;  
   background: url('../../images/yarn.svg');
-  margin-top: 9px;
+}
+
+.yarnIconAvailable {
+  width: 15px;
+  height: 17px;
+  margin-top: 8px;  
+  background-color: #2188b6;
+  -webkit-mask-image: url('../../images/yarn.svg');
+}
+
+.ionAndroidSync {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+  background: url('../../images/android-sync.svg');
+}
+
+.ionCheckmark {
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-top: 8px;
+  background: url('../../images/checkmark.svg');
 }

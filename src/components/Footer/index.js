@@ -4,17 +4,17 @@ import styles from './Footer.scss';
 
 function getSyncStatus(isSyncing) {
   if (isSyncing) {
-    return (<p><span className={styles.iconWrapper}><i className="icon ion-android-sync"></i></span> Syncing...</p>);
+    return (<p><span className={styles.iconWrapper}><i className={styles.ionAndroidSync}></i></span> Syncing...</p>);
   } else {
-    return (<p><span className={styles.iconWrapper}><i className="icon ion-checkmark"></i></span> Up to date.</p>);
+    return (<p><span className={styles.iconWrapper}><i className={styles.ionCheckmark}></i></span> Up to date.</p>);
   }
 }
 
 function getPackageManagerIcon(packageManager) {
   if (packageManager === 'yarn') {
-    return (<p>Yarn available. <i className={styles.yarnIcon}></i></p>);
+    return (<p>Yarn available. <i className={styles.yarnIconAvailable}></i></p>);
   } else {
-    return (<p>Yarn not available. <i className={styles.yarnIcon}></i></p>);
+    return (<p>Yarn not available. <i className={styles.yarnIconNotAvailable}></i></p>);
   }
 }
 

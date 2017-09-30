@@ -16,8 +16,8 @@
   &:hover {
     background: #000;
 
-    .folder-icon {
-      color: #B7F900;
+    .iosFolderOutline  {
+      background-color: #B7F900;
     }
   }
 }
@@ -32,6 +32,17 @@
   left: 0;
   position: absolute;
   transition: color 0.2s;
+}
+
+
+.iosFolderOutline {
+  display: block;
+  width: 30px;
+  height: 30px;
+  margin: 20px 0 0 10px;
+  background-color: #626262;
+  -webkit-mask-image: url('../../images/ios-folder-outline.svg');
+  transition: background-color .2s;
 }
 
 .content {
