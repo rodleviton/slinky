@@ -1,6 +1,6 @@
 {
   "name": "slinky",
-  "version": "v0.1.1",
+  "version": "v0.1.2",
   "private": false,
   "description": "A GUI for npm and yarn symlink management.",
   "author": {
